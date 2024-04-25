@@ -1,1 +1,1 @@
-Interview practice
+Interview practice on Pascal triangle

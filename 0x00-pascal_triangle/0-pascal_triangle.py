@@ -1,28 +1,27 @@
-#usr/bin/env python3
-"""module for implementing the pascal triangle"""
+#usr/bin/python3
+"""Pascal Triangle Interview Challenge"""
 
 
 def pascal_triangle(n):
-    """Draws the Pascal triangle"""
+    """Returns a list of lists of numbers
+    representing the Pascal triangle"""
     if n <= 0:
         return []
 
-    pascal = []
-    if n >= 1:
-        pascal.append([1])
-        if n == 1:
-            return pascal
-    if n >= 2:
-        pascal.append([1, 1])
-        if n == 2:
-            return pascal
-    
-    while (n - 2):
-        row = [1]
-        for x, y in zip(pascal[-1][0:len(pascal)], pascal[-1][1:]):
-            row.append(x + y)
-        row.append(1)
+    triangle = [0] * n
 
-        pascal.append(row)
+    for i in range(n):
+        # Define a row and fill first and last index with 1
+        row = [0] * (i+1)
+        row[0] = 1
+        row[len(row) - 1] = 1
 
-    return pascal
+        for j in range(1, i):
+            if j > 0 and j < len(row):
+                a = triangle[i - 1][j]
+                b = triangle[i - 1][j - 1]
+                row[j] = a + b
+
+        triangle[i] = row
+
+    return triangle

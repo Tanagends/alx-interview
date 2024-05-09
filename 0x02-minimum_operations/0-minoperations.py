@@ -14,7 +14,7 @@ def minOperations(n):
     while pasted_chars < n:
         # If no characters are copied yet
         if clipboard == 0:
-            # Copy all characters (this is equivalent to your "copyall" operation)
+            # Copy all characters (this is equivalent to your "copyall")
             clipboard = pasted_chars
             # Increment operations counter
             counter += 1
@@ -35,14 +35,14 @@ def minOperations(n):
         if remaining < clipboard:
             return 0
 
-        # If remaining characters cannot be evenly divided by the current characters
+        # If remaining characters cannot be evenly divided by the curr chars
         if remaining % pasted_chars != 0:
             # Paste the characters from the clipboard
             pasted_chars += clipboard
             # Increment operations counter
             counter += 1
         else:
-            # Copy all characters again (this is equivalent to your "copyall" operation)
+            # Copy all characters again (this is equivalent to your "copyall")
             clipboard = pasted_chars
             # Paste the characters from the clipboard
             pasted_chars += clipboard
@@ -54,4 +54,3 @@ def minOperations(n):
         return counter
     else:
         return 0
-

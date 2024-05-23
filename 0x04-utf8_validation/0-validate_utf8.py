@@ -4,4 +4,7 @@
 
 def validUTF8(data):
     """Validates if data is utf-8 encoded"""
+    if (not isinstance(data, list) or
+       not all(map(lambda x: isinstance(x, int), data))):
+        return False
     return all(map(lambda el: el | 0b11111111 == 255, data))

@@ -7,4 +7,4 @@ def validUTF8(data):
     if (not isinstance(data, list) or
        not all(map(lambda x: isinstance(x, int), data))):
         return False
-    return all(map(lambda el: el < 128 and not (el & 0b10000000), data))
+    return all(map(lambda el: (el & 127) & 0b10000000 != 0, data))

@@ -3,7 +3,7 @@
 
 
 def validUTF8(data):
-	"""validate"""
+	"""validates utf-8"""
     count = 0
     for num in data:
         if count == 0:
@@ -20,4 +20,3 @@ def validUTF8(data):
                 return False
             count -= 1
     return count == 0
-

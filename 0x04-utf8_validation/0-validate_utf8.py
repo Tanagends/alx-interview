@@ -6,6 +6,7 @@ def validUTF8(data):
     """validates utf-8"""
     count = 0
     for num in data:
+        num &= 0b11111111
         if count == 0:
             if num >> 5 == 110:
                 count = 2

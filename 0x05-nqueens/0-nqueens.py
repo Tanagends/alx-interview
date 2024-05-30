@@ -22,6 +22,7 @@ def is_valid(board, row, col):
 
     return True
 
+
 def solve_nqueens_util(board, col, solutions):
     """Utilize backtracking to find all solutions."""
     if col >= len(board):
@@ -40,12 +41,14 @@ def solve_nqueens_util(board, col, solutions):
             solve_nqueens_util(board, col + 1, solutions)
             board[i][col] = 0  # backtrack
 
+
 def solve_nqueens(n):
     """Solve the N Queens problem and return all possible solutions."""
     board = [[0 for _ in range(n)] for _ in range(n)]
     solutions = []
     solve_nqueens_util(board, 0, solutions)
     return solutions
+
 
 def main():
     if len(sys.argv) != 2:
@@ -65,6 +68,7 @@ def main():
     solutions = solve_nqueens(n)
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     main()
